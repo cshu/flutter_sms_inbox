@@ -35,13 +35,13 @@ public class SmsQueryHandler {
             result.error("no_cursor", "flutter_sms_inbox plugin requires cursor to resolve content", null);
             return;
         }
-
+System.out.println("Content provider is okay");
         if (!cursor.moveToFirst()) {
             cursor.close();
             result.success(list);
             return;
         }
-
+System.out.println("Has at least one message");
         do {
             JSONObject obj = readSms(cursor);
             try {

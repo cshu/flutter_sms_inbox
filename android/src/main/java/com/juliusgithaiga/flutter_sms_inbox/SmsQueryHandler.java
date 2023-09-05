@@ -30,7 +30,7 @@ public class SmsQueryHandler {
 
     void handle() {
         ArrayList<JSONObject> list = new ArrayList<>();
-        Cursor cursor = this.applicationContext.getContentResolver().query(this.request.toUri(), null, null, null, null);
+        Cursor cursor = this.applicationContext.getContentResolver().query(this.request.toUri(), new String[]{"*"}, null, null, null);
         if (cursor == null) {
             result.error("no_cursor", "flutter_sms_inbox plugin requires cursor to resolve content", null);
             return;
